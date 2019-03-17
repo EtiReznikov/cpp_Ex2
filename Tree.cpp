@@ -277,5 +277,50 @@ void ariel::Tree::removeroot()
         return size_sub_tree(tree_root);
     }
 
+     ariel::Tree::Node* ariel::Tree::findnode(int i, Node* n)
+     {
+         if (n !=NULL)
+         {
+             if(n->value==i)
+             {
+                 return n;
+             }
+             else
+             {
+                 if (i<n->value)
+                 {
+                     return findnode(i,n->left);
+                 }
+                 else
+                 {
+                     return findnode(i,n->right);
+                 }
+                 
+             }
+             
+
+         }
+         return NULL;
+     }
+    ariel::Tree::Node* ariel::Tree::findkey(int i)
+    {
+    return findnode(i, tree_root);
+    }
+
+      int ariel::Tree::left(int i)
+      {
+          Node* current=findkey(i);
+          return current->left->value;
+      }
+    int ariel::Tree::right(int i)
+      {
+          Node* current=findkey(i);
+          return current->right->value;
+      }
+      int ariel::Tree::parent(int i)
+      {
+          return 0;
+      }
+
 
   

@@ -10,7 +10,7 @@ class Tree
     };
 
     Node* tree_root;
-    
+
     void insert_node(int i, Node* n);
     void printinorder(Node* n);
     bool contains_node(int i,Node* n);
@@ -21,6 +21,7 @@ class Tree
     Node* creatLeaf(int i);
     void remove_sub_tree(Node* n);
     int size_sub_tree(Node* n);
+    Node* findnode(int i, Node* n);
     
     
   public:
@@ -36,6 +37,7 @@ class Tree
     int left(int i);
     int right(int i);
     void print();
+    Node* findkey(int i);
 
     int findsmallest();
 };
