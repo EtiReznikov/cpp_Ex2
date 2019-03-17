@@ -264,10 +264,9 @@ void ariel::Tree::removeroot()
             return 0; 
         }
          
-        else
-        {
-            return(size(n->left) + 1 + size(n->right)); 
-        }
+        
+        return(size_sub_tree(n->left) + 1 + size_sub_tree(n->right)); 
+        
         
     }
 
