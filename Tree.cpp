@@ -11,6 +11,8 @@ ariel::Tree::Node* ariel::Tree::creatLeaf(int i)
     n->value=i;
     n->left=NULL;
     n->right=NULL;
+
+    return n;
 }
  void ariel::Tree::insert(int i)
  {
