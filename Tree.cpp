@@ -16,7 +16,7 @@ ariel::Tree::Node* ariel::Tree::creatLeaf(int i)
  {
       if (contains(i))
     {
-        throw "The tree contains"+i;
+        throw "The tree contains"i;
     }
      insert_node(i,tree_root);
  }
@@ -139,7 +139,7 @@ void ariel::Tree::remove_node(int i, Node* n)
   {
     if (!contains(i))
     {
-        throw "The tree does not contains"+i;
+        throw "The tree does not contains"i;
     }
    remove_node(i, tree_root);
   }
