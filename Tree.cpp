@@ -317,10 +317,32 @@ void ariel::Tree::removeroot()
           Node* current=findkey(i);
           return current->right->value;
       }
-      int ariel::Tree::parent(int i)
-      {
-          return 0;
-      }
+     
+ ariel::Tree:: Node* ariel::Tree::findparent(int i, Node* n)
+ {
+     if (n == NULL)
+       return NULL;
 
+    if(n->left == NULL && n->right == NULL)
+       return NULL;
+
+    if( (n->left != NULL && n->left->value == i)
+        || (n->right != NULL && n->right->value == i))
+       return n;
+
+    if(n->value > i)
+       return findparent(i,n->left);
+
+    if(n->value < i)
+       return findparent(i,n->right);
+
+    return NULL;
+ }
+
+  int ariel::Tree::parent(int i)
+  {
+      Node* parent=findparent(i,tree_root);
+      return parent->value;
+  }
 
   

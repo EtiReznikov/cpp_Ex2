@@ -22,6 +22,7 @@ class Tree
     void remove_sub_tree(Node* n);
     int size_sub_tree(Node* n);
     Node* findnode(int i, Node* n);
+    Node* findparent(int i, Node* n);
     
     
   public:
