@@ -2,8 +2,19 @@
 #include "Tree.hpp"
 using namespace std;
 
-ariel::Tree::Tree(){
+/*
+Constructor
+*/
+ariel::Tree::Tree()
+{
     tree_root=NULL;
+}
+/*
+Destructor
+*/
+ariel::Tree::~Tree()
+{
+    remove_sub_tree(tree_root);
 }
 ariel::Tree::Node* ariel::Tree::creatLeaf(int i)
 {
@@ -250,10 +261,7 @@ void ariel::Tree::removeroot()
         }
     }
 
-   ariel::Tree::~Tree()
-   {
-    remove_sub_tree(tree_root);
-   }
+  
 
    int ariel::Tree::root()
    {
@@ -310,16 +318,25 @@ void ariel::Tree::removeroot()
       int ariel::Tree::left(int i)
       {
           Node* current=findkey(i);
+          if (current->left==NULL)
+          {
+             throw "leaf has no children";
+          }
           return current->left->value;
       }
     int ariel::Tree::right(int i)
       {
           Node* current=findkey(i);
+          if (current->right==NULL)
+          {
+              throw "leaf has no children";
+          }
           return current->right->value;
       }
      
  ariel::Tree:: Node* ariel::Tree::findparent(int i, Node* n)
  {
+   
      if (n == NULL)
        return NULL;
 
@@ -341,7 +358,13 @@ void ariel::Tree::removeroot()
 
   int ariel::Tree::parent(int i)
   {
+      Node* current=findnode(i,tree_root);
+      if (current==tree_root)
+          {
+             throw "The root has no parent";
+          }
       Node* parent=findparent(i,tree_root);
+       
       return parent->value;
   }
 

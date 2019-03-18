@@ -19,6 +19,15 @@ int main() {
   
   badkan::TestCase tc("Binary tree");
   tc
+  
+  //Mytests:
+  .CHECK_THROWS(threetree.parent(5))
+.CHECK_THROWS(threetree.left(7))
+.CHECK_THROWS(threetree.right(3))
+  .CHECK_EQUAL (emptytree.contains(10), false)
+
+
+  //////////
   .CHECK_EQUAL (emptytree.size(), 0)
   .CHECK_OK    (emptytree.insert(5))
   .CHECK_EQUAL (emptytree.size(), 1)
@@ -35,6 +44,8 @@ int main() {
   .CHECK_EQUAL (threetree.right(5), 7)
   .CHECK_THROWS(threetree.insert(3))
   .CHECK_OK    (threetree.print())
+
+  
   
   .print();
   
