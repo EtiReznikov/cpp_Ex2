@@ -320,7 +320,7 @@ void ariel::Tree::removeroot()
           Node* current=findkey(i);
           if (current->left==NULL)
           {
-             throw "leaf has no children";
+             throw "This leaf has no left children";
           }
           return current->left->value;
       }
@@ -329,7 +329,7 @@ void ariel::Tree::removeroot()
           Node* current=findkey(i);
           if (current->right==NULL)
           {
-              throw "leaf has no children";
+              throw "This leaf has no left children";
           }
           return current->right->value;
       }
