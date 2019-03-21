@@ -318,9 +318,14 @@ int ariel::Tree::findsmallest ()
 
 /*
   A function that return the value of the root
+  Throws exception if the tree is empty
 */
 int ariel::Tree::root()
 {
+    if(tree_root==NULL)
+    {
+        throw "The tree is empty";
+    }
     return tree_root->value;
 }
 

@@ -13,6 +13,13 @@ using std::cout, std::endl;
 int main() {
   ariel::Tree emptytree;
   ariel::Tree threetree;  
+
+    //Mytrees:
+  ariel::Tree mytree1; 
+  ariel::Tree mytree2; 
+  //
+
+
   threetree.insert(5);
   threetree.insert(7);
   threetree.insert(3);
@@ -38,11 +45,8 @@ int main() {
   .CHECK_OK    (threetree.print())
 
 
-  //Mytests:
-  ariel::Tree mytree1; 
-  ariel::Tree mytree2; 
 
-  .CHECK_THROWS(mytree1.print())
+   //Mytests:
   .CHECK_OK    (mytree1.insert(27))
   .CHECK_OK    (mytree1.insert(23))
   .CHECK_OK    (mytree1.insert(2))
@@ -61,12 +65,8 @@ int main() {
   .CHECK_OK    (mytree1.remove(27))
   .CHECK_EQUAL (mytree1.root(), 23)
 
- .CHECK_THROWS(mytree2.print())
-  .CHECK_OK    (mytree2.insert(18))
-  .CHECK_OK    (mytree2.insert(1))
-  .CHECK_OK    (mytree2.insert(14))
-  .CHECK_OK    (mytree2.insert(19))
-  .CHECK_OK    (mytree2.insert(20))
+  .CHECK_THROWS(mytree2.print())
+  .CHECK_THROWS(mytree2.root())
 
   .print();
   
