@@ -13,7 +13,6 @@ using std::cout, std::endl;
 int main() {
   ariel::Tree emptytree;
   ariel::Tree threetree;  
-  ariel::Tree mytree; 
   threetree.insert(5);
   threetree.insert(7);
   threetree.insert(3);
@@ -40,23 +39,34 @@ int main() {
 
 
   //Mytests:
-  .CHECK_OK    (mytree.insert(27))
-  .CHECK_OK    (mytree.insert(23))
-  .CHECK_OK    (mytree.insert(2))
-  .CHECK_OK    (mytree.insert(17))
-  .CHECK_OK    (mytree.insert(1))
-  .CHECK_EQUAL (mytree.size(), 5)
-  .CHECK_THROWS(mytree.parent(27))
-  .CHECK_THROWS(mytree.left(1))
-  .CHECK_THROWS(mytree.right(27))
-  .CHECK_THROWS(mytree.insert(23))
-  .CHECK_EQUAL (mytree.contains(10), false)
-  .CHECK_THROWS(mytree.remove(7))
-  .CHECK_OK    (mytree.remove(17))
-  .CHECK_THROWS(mytree.remove(17))
-  .CHECK_EQUAL (mytree.size(), 4)
-  .CHECK_OK    (mytree.remove(27))
-  .CHECK_EQUAL (mytree.root(), 23)
+  ariel::Tree mytree1; 
+  ariel::Tree mytree2; 
+
+  .CHECK_THROWS(mytree1.print())
+  .CHECK_OK    (mytree1.insert(27))
+  .CHECK_OK    (mytree1.insert(23))
+  .CHECK_OK    (mytree1.insert(2))
+  .CHECK_OK    (mytree1.insert(17))
+  .CHECK_OK    (mytree1.insert(1))
+  .CHECK_EQUAL (mytree1.size(), 5)
+  .CHECK_THROWS(mytree1.parent(27))
+  .CHECK_THROWS(mytree1.left(1))
+  .CHECK_THROWS(mytree1.right(27))
+  .CHECK_THROWS(mytree1.insert(23))
+  .CHECK_EQUAL (mytree1.contains(10), false)
+  .CHECK_THROWS(mytree1.remove(7))
+  .CHECK_OK    (mytree1.remove(17))
+  .CHECK_THROWS(mytree1.remove(17))
+  .CHECK_EQUAL (mytree1.size(), 4)
+  .CHECK_OK    (mytree1.remove(27))
+  .CHECK_EQUAL (mytree1.root(), 23)
+
+ .CHECK_THROWS(mytree2.print())
+  .CHECK_OK    (mytree2.insert(18))
+  .CHECK_OK    (mytree2.insert(1))
+  .CHECK_OK    (mytree2.insert(14))
+  .CHECK_OK    (mytree2.insert(19))
+  .CHECK_OK    (mytree2.insert(20))
 
   .print();
   

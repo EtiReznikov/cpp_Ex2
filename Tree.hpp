@@ -20,7 +20,7 @@ class Tree
     void remove_match(Node* p, Node* match, bool left);
     Node* creatLeaf(int i);
     void remove_sub_tree(Node* n);
-    int size_sub_tree(Node* n);
+    int size_subtree(Node* n);
     Node* findnode(int i, Node* n);
     Node* findparent(int i, Node* n);
     
