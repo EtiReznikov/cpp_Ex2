@@ -82,8 +82,6 @@ int main() {
   .CHECK_OK    (mytree2.insert(4))
   .CHECK_THROWS(mytree2.insert(2))
 
-  .CHECK_EQUAL (mytree2.size(), 10)
-
   .CHECK_EQUAL (mytree2.contains(2), true)
   .CHECK_EQUAL (mytree2.contains(11), true)
   .CHECK_EQUAL (mytree2.contains(18), true)
@@ -93,40 +91,63 @@ int main() {
   .CHECK_EQUAL (mytree2.contains(1), true)
   .CHECK_EQUAL (mytree2.contains(9), true)
   .CHECK_EQUAL (mytree2.contains(5), true)
-  .CHECK_EQUAL (mytree2.contains(4), true)
+  .CHECK_EQUAL (mytree2.contains(4), true) //55
 
-  .CHECK_OK    (mytree2.remove(17))
-  .CHECK_EQUAL (mytree2.size(), 9)
-  .CHECK_THROWS(mytree2.remove(17))
-
+    .CHECK_EQUAL (mytree2.size(), 10)
   .CHECK_EQUAL (mytree2.root(), 2)
   .CHECK_OK    (mytree2.remove(2))
-  .CHECK_EQUAL (mytree2.size(), 8)
-  .CHECK_EQUAL (mytree2.root(), 1)
-  .CHECK_OK    (mytree2.remove(1))
-  .CHECK_EQUAL (mytree2.size(), 7)
-  .CHECK_EQUAL (mytree2.root(), 11)
-  .CHECK_OK    (mytree2.remove(11))
-  .CHECK_EQUAL (mytree2.size(), 6)
-  .CHECK_EQUAL (mytree2.root(), 9)
-  .CHECK_OK    (mytree2.remove(9))
-  .CHECK_EQUAL (mytree2.size(), 5)
-  .CHECK_EQUAL (mytree2.root(), 5)
-  .CHECK_OK    (mytree2.remove(5))
-  .CHECK_EQUAL (mytree2.size(), 4)
+  .CHECK_THROWS(mytree2.remove(2))
+  .CHECK_EQUAL (mytree2.size(), 9)
+
   .CHECK_EQUAL (mytree2.root(), 4)
   .CHECK_OK    (mytree2.remove(4))
-  .CHECK_EQUAL (mytree2.size(), 3)
-  .CHECK_EQUAL (mytree2.root(), 18)
-  .CHECK_OK    (mytree2.remove(18))
-  .CHECK_EQUAL (mytree2.size(), 2)
+  .CHECK_THROWS(mytree2.remove(4))
+  .CHECK_EQUAL (mytree2.size(), 8)
+
+  .CHECK_EQUAL (mytree2.root(), 5)
+  .CHECK_OK    (mytree2.remove(5))
+  .CHECK_THROWS(mytree2.remove(5))
+  .CHECK_EQUAL (mytree2.size(), 7)
+
+ 
+  .CHECK_EQUAL (mytree2.root(), 9)
+  .CHECK_OK    (mytree2.remove(9))
+  .CHECK_THROWS(mytree2.remove(9))
+  .CHECK_EQUAL (mytree2.size(), 6)
+
+  .CHECK_EQUAL (mytree2.root(), 11)
+  .CHECK_OK    (mytree2.remove(11))
+  .CHECK_THROWS(mytree2.remove(11))
+  .CHECK_EQUAL (mytree2.size(), 5)
+
+
   .CHECK_EQUAL (mytree2.root(), 15)
   .CHECK_OK    (mytree2.remove(15))
-  .CHECK_EQUAL (mytree2.size(), 1)
+  .CHECK_THROWS(mytree2.remove(15))
+  .CHECK_EQUAL (mytree2.size(), 4)
+
+  
+  .CHECK_EQUAL (mytree2.root(), 17)
+  .CHECK_OK    (mytree2.remove(17))
+  .CHECK_THROWS(mytree2.remove(17))
+  .CHECK_EQUAL (mytree2.size(), 3)
+
+  .CHECK_EQUAL (mytree2.root(), 18)
+  .CHECK_OK    (mytree2.remove(18))
+  .CHECK_THROWS(mytree2.remove(18))
+  .CHECK_EQUAL (mytree2.size(), 2)
+
   .CHECK_EQUAL (mytree2.root(), 20)
   .CHECK_OK    (mytree2.remove(20))
+  .CHECK_THROWS(mytree2.remove(20))
+  .CHECK_EQUAL (mytree2.size(), 1)
+
+  .CHECK_EQUAL (mytree2.root(), 1)
+  .CHECK_OK    (mytree2.remove(1))
+  .CHECK_THROWS(mytree2.remove(1))
   .CHECK_EQUAL (mytree2.size(), 0)
 
+  .CHECK_THROWS(mytree2.root())
 
   .CHECK_EQUAL (mytree2.contains(2), false)
   .CHECK_EQUAL (mytree2.contains(11), false)
@@ -139,10 +160,6 @@ int main() {
   .CHECK_EQUAL (mytree2.contains(5), false)
   .CHECK_EQUAL (mytree2.contains(4), false)
 
-
-
-
-  
 
 
 
